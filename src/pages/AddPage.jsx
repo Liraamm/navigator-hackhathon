@@ -121,7 +121,7 @@ export default function AddPage() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Add food
+              Add new place
             </Button>
           </Box>
         </Box>

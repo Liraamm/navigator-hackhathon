@@ -21,7 +21,7 @@ const NavigatorList = () => {
       }}
     >
       {places.length > 0 ? (
-        places.map((item) => <NavigatorItem key={item.key} item={item} />)
+        places.map((item) => <NavigatorItem key={item.id} item={item} />)
       ) : (
         <div>
           <CircularProgress
