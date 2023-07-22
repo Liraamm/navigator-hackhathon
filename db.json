@@ -1,1 +1,25 @@
-{ "places": [{}] }
+{
+  "places": [
+    {
+      "id": 1,
+      "title": "Hospital",
+      "image": "https://cdn-icons-png.flaticon.com/512/4320/4320350.png",
+      "category": "Emergency",
+      "description": "Find a nearby hospital! In emergency situation, please contact here:"
+    },
+    {
+      "id": 2,
+      "title": "Police station",
+      "image": "https://cdn-icons-png.flaticon.com/512/4320/4320350.png",
+      "category": "Emergency",
+      "description": "Find a nearby police station! In emergency situation, please contact here:"
+    },
+    {
+      "title": "qwertyu",
+      "description": "wertyui",
+      "image": "https://media.wired.com/photos/6425ef2984ccb2dd1d2ac6cb/16:9/w_2399,h_1349,c_limit/asuszenbooks13oled_GEAR-Featured.jpg",
+      "category": "Entertainment",
+      "id": 3
+    }
+  ]
+}
