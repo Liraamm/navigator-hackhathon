@@ -126,11 +126,11 @@ export default function UpdatePage() {
                 label="Category"
                 color="success"
               >
-                <MenuItem value={"emergency"}>Emergency</MenuItem>
-                <MenuItem value={"entertainment"}>Entertainment</MenuItem>
-                <MenuItem value={"shopping"}>Shopping</MenuItem>
-                <MenuItem value={"food"}>Food</MenuItem>
-                <MenuItem value={"nature"}>Nature</MenuItem>
+                <MenuItem value={"Emergency"}>Emergency</MenuItem>
+                <MenuItem value={"Entertainment"}>Entertainment</MenuItem>
+                <MenuItem value={"Shopping"}>Shopping</MenuItem>
+                <MenuItem value={"Food"}>Food</MenuItem>
+                <MenuItem value={"Nature"}>Nature</MenuItem>
               </Select>
             </FormControl>
 

@@ -11,12 +11,14 @@ const NavigatorItem = ({ item }) => {
 
   return (
     <div className="card">
-      <div className="icon">
-        <img width={150} src={item.image} />
+      <div>
+        <div className="icon">
+          <img width={150} src={item.image} />
+        </div>
+        <strong>{item.title}</strong>
+        <div className="card__body">Category: {item.category}</div>
+        <div className="card__body">{item.description}</div>
       </div>
-      <strong>{item.title}</strong>
-      <div className="card__body">{item.description}</div>
-      <div className="card__body">Category: {item.category}</div>
       <span
         style={{
           display: "flex",
@@ -24,16 +26,23 @@ const NavigatorItem = ({ item }) => {
           justifyContent: "space-around",
         }}
       >
+        <p>
+          To get help
+          <a href="https://t.me/navBotikBot" target="_blank">
+            click here
+          </a>
+        </p>
+
         <p>Learn more</p>
         <Button
-          sx={{ textTransform: "capitalize", color: "#e50087", gap: "5px" }}
+          sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
           onClick={() => navigate(`/update/${item.id}`)}
         >
           Edit
           {<BorderColorIcon fontSize="small" />}
         </Button>
         <Button
-          sx={{ textTransform: "capitalize", color: "#e50087", gap: "5px" }}
+          sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
           onClick={() => removePlace(item.id)}
         >
           Delete

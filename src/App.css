@@ -4,8 +4,8 @@
 
 .card {
   --bg: #f7f7f8;
-  --hover-bg: #ffe5f4;
-  --hover-text: #e50087;
+  --hover-bg: #a1ccd1;
+  --hover-text: #40514d;
   width: 23ch;
   height: 40vh;
   text-align: center;
@@ -66,4 +66,9 @@
 .card:hover > div,
 .card:hover > strong {
   opacity: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #f4f2de;
 }
