@@ -11,21 +11,21 @@
       "id": 2,
       "title": "Police station",
       "image": "https://cdn-icons-png.flaticon.com/512/4899/4899371.png",
-      "category": "entertainment",
+      "category": "Entertainment",
       "description": "Find a nearby police station! In emergency situation, please contact here:"
     },
     {
       "id": 4,
       "title": "Cafe",
       "image": "https://cdn-icons-png.flaticon.com/512/169/169884.png",
-      "category": "food",
+      "category": "Food",
       "description": "Find a nearby police station! In emergency situation, please contact here:"
     },
     {
       "id": 5,
-      "title": "Dubai Mall",
+      "title": "Mall",
       "image": "https://cdn-icons-png.flaticon.com/512/998/998718.png",
-      "category": "shopping",
+      "category": "Shopping",
       "description": "Find a nearby police station! In emergency situation, please contact here:"
     }
   ]
