@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import { useNavigatorContext } from "../contexts/NavigatorContext";
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 
 const NavigatorItem = ({ item }) => {
   const { removePlace } = useNavigatorContext();
@@ -20,18 +21,24 @@ const NavigatorItem = ({ item }) => {
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "space-around",
         }}
       >
         <p>Learn more</p>
-        <div>
-          <Button>Edit</Button>
-          <Button
-            size="large"
-            endIcon={<DeleteIcon />}
-            onClick={() => removePlace(item.id)}
-          ></Button>
-        </div>
+        <Button
+          sx={{ textTransform: "capitalize", color: "#e50087", gap: "5px" }}
+          onClick={() => navigate(`/update/${item.id}`)}
+        >
+          Edit
+          {<BorderColorIcon fontSize="small" />}
+        </Button>
+        <Button
+          sx={{ textTransform: "capitalize", color: "#e50087", gap: "5px" }}
+          onClick={() => removePlace(item.id)}
+        >
+          Delete
+          {<DeleteIcon fontSize="small" />}
+        </Button>
       </span>
     </div>
   );
