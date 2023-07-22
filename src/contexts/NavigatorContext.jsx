@@ -10,12 +10,17 @@ export function useNavigatorContext() {
 
 const init = {
   places: [],
+  place: null,
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.places:
       return { ...state, places: action.payload };
+
+    case ACTIONS.place:
+      return { ...state, place: action.payload };
+
     default:
       return state;
   }
@@ -37,6 +42,15 @@ const NavigatorContext = ({ children }) => {
     }
   }
 
+  async function removePlace(id) {
+    try {
+      await axios.delete(`${API}/${id}`);
+      getPlaces();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async function getOnePlace(id) {
     try {
       const { data } = await axios.get(`${API}/${id}`);
@@ -44,8 +58,16 @@ const NavigatorContext = ({ children }) => {
         type: ACTIONS.place,
         payload: data,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async function updatePlace(id, newData) {
+    try {
+      await axios.patch(`${API}/${id}`, newData);
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -57,7 +79,15 @@ const NavigatorContext = ({ children }) => {
     }
   }
 
-  const value = { getPlaces, places: state.places, addPlace };
+  const value = {
+    places: state.places,
+    place: state.place,
+    getPlaces,
+    addPlace,
+    removePlace,
+    getOnePlace,
+    updatePlace,
+  };
   return (
     <navigatorContext.Provider value={value}>
       {children}
