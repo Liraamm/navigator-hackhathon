@@ -10,7 +10,6 @@ const MainLayout = () => {
       <Navbar />
       <Outlet />
       <Toastify />
-      <LiveSearch />
     </div>
   );
 };
