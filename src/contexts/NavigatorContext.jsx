@@ -49,6 +49,7 @@ const NavigatorContext = ({ children }) => {
         payload: totalCount,
       });
 
+
       dispatch({
         type: ACTIONS.places,
         payload: data,
