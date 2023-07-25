@@ -1,11 +1,127 @@
 {
   "places": [
     {
+      "id": 1,
+      "title": "Hospital",
+      "image": "https://cdn-icons-png.flaticon.com/512/4320/4320350.png",
+      "category": "Emergency",
+      "description": "Find a nearby hospital! In emergency situation, please contact here:",
+      "path": "/hospital"
+    },
+    {
+      "id": 2,
+      "title": "Police station",
+      "image": "https://cdn-icons-png.flaticon.com/512/4899/4899371.png",
+      "category": "Emergency",
+      "description": "Find a nearby police station! In emergency situation, please contact here:",
+      "path": "/police"
+    },
+    {
       "id": 4,
       "title": "Cafe",
-      "image": "https://cdn-icons-png.flaticon.com/512/169/169884.png",
+      "image": "https://cdn-icons-png.flaticon.com/512/2069/2069532.png",
       "category": "Food",
-      "description": "Find a nearby police station! In emergency situation, please contact here:"
+      "description": "Find a nearby police station! In emergency situation, please contact here:",
+      "path": "/cafe"
+    },
+    {
+      "id": 5,
+      "title": "Mall",
+      "image": "https://cdn-icons-png.flaticon.com/512/998/998718.png",
+      "category": "Entertainment",
+      "description": "Find a nearby police station! In emergency situation, please contact here:",
+      "path": "/mall"
+    },
+    {
+      "title": "Bar",
+      "description": "Find a nearby bar! In emergency situation, please contact here:",
+      "image": "https://cdn-icons-png.flaticon.com/512/1901/1901369.png",
+      "category": "Entertainment",
+      "id": 6,
+      "path": "/bar"
+    },
+    {
+      "title": "Park",
+      "description": "Find a nearby park! In emergency situation, please contact here:",
+      "image": "https://cdn-icons-png.flaticon.com/512/1434/1434806.png",
+      "category": "Nature",
+      "id": 7,
+      "path": "/park"
+    }
+  ],
+  "hospital": [
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    },
+    {
+      "id": 2,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    }
+  ],
+  "police": [
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    }
+  ],
+  "cafe": [
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    },
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    },
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    }
+  ],
+  "mall": [
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    }
+  ],
+  "bar": [
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
+    }
+  ],
+  "park": [
+    {
+      "id": 1,
+      "name": "Chui hospital",
+      "destination": "Chui 234",
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
+      "number": 312367150
     }
   ]
 }

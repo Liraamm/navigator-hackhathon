@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { useNavigatorContext } from "../contexts/NavigatorContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 
@@ -33,7 +33,10 @@ const NavigatorItem = ({ item }) => {
           </a>
         </p>
 
-        <p>Learn more</p>
+        <Link to={item.path}>
+          <p>Learn more</p>
+        </Link>
+
         <Button
           sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
           onClick={() => navigate(`/update/${item.id}`)}
