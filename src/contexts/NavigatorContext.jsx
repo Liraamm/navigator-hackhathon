@@ -31,7 +31,7 @@ const NavigatorContext = ({ children }) => {
 
   async function getPlaces() {
     try {
-      const { data } = await axios.get(API);
+      const { data } = await axios.get(`${API}${window.location.search}`);
 
       dispatch({
         type: ACTIONS.places,
