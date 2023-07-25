@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { LIMIT } from "../utils/consts";
 
 export default function Filter() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,7 +17,10 @@ export default function Filter() {
     const currentParams = Object.fromEntries([...searchParams]);
     if (category === "all") {
       const { _limit, _page, q } = currentParams;
-      setSearchParams({});
+      setSearchParams({
+        _limit: LIMIT,
+        _page: _page || 1,
+      });
     } else {
       setSearchParams({
         ...currentParams,
