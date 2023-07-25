@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { useNavigatorContext } from "../contexts/NavigatorContext";
 import { LIMIT } from "../utils/consts";
 import { Box, Pagination } from "@mui/material";
+import Filter from "../components/Filter";
 
 const MenuPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,7 +23,6 @@ const MenuPage = () => {
       _limit: LIMIT,
     });
   }, [page]);
-
 
   return (
     <div>
