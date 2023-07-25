@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useReducer } from "react";
-import { ACTIONS, API } from "../utils/consts";
+import React, { createContext, useContext, useReducer, useState } from "react";
+import { ACTIONS, API, LIMIT } from "../utils/consts";
 import axios from "axios";
+import { useSearchParams } from "react-router-dom";
 
 const navigatorContext = createContext();
 
@@ -11,6 +12,7 @@ export function useNavigatorContext() {
 const init = {
   places: [],
   place: null,
+  pageTotalCount: 1,
 };
 
 function reducer(state, action) {
@@ -21,6 +23,9 @@ function reducer(state, action) {
     case ACTIONS.place:
       return { ...state, place: action.payload };
 
+    case ACTIONS.pageTotalCount:
+      return { ...state, pageTotalCount: action.payload };
+
     default:
       return state;
   }
@@ -28,10 +33,22 @@ function reducer(state, action) {
 
 const NavigatorContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, init);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(+searchParams.get("_page") || 1);
 
   async function getPlaces() {
     try {
-      const { data } = await axios.get(`${API}${window.location.search}`);
+      const { data, headers } = await axios.get(
+        `${API}${window.location.search}`
+      );
+
+      const totalCount = Math.ceil(headers["x-total-count"] / LIMIT);
+
+      dispatch({
+        type: ACTIONS.pageTotalCount,
+        payload: totalCount,
+      });
+
 
       dispatch({
         type: ACTIONS.places,
@@ -82,6 +99,9 @@ const NavigatorContext = ({ children }) => {
   const value = {
     places: state.places,
     place: state.place,
+    pageTotalCount: state.pageTotalCount,
+    page,
+    setPage,
     getPlaces,
     addPlace,
     removePlace,
