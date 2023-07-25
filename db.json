@@ -1,31 +1,10 @@
 {
   "places": [
     {
-      "id": 1,
-      "title": "Hospital",
-      "image": "https://cdn-icons-png.flaticon.com/512/4320/4320350.png",
-      "category": "Emergency",
-      "description": "Find a nearby hospital! In emergency situation, please contact here:"
-    },
-    {
-      "id": 2,
-      "title": "Police station",
-      "image": "https://cdn-icons-png.flaticon.com/512/4899/4899371.png",
-      "category": "Entertainment",
-      "description": "Find a nearby police station! In emergency situation, please contact here:"
-    },
-    {
       "id": 4,
       "title": "Cafe",
       "image": "https://cdn-icons-png.flaticon.com/512/169/169884.png",
       "category": "Food",
-      "description": "Find a nearby police station! In emergency situation, please contact here:"
-    },
-    {
-      "id": 5,
-      "title": "Mall",
-      "image": "https://cdn-icons-png.flaticon.com/512/998/998718.png",
-      "category": "Shopping",
       "description": "Find a nearby police station! In emergency situation, please contact here:"
     }
   ]

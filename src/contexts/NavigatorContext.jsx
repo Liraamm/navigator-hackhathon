@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { ACTIONS, API } from "../utils/consts";
 import axios from "axios";
+import { notify } from "../components/Toastify";
 
 const navigatorContext = createContext();
 
@@ -37,8 +38,8 @@ const NavigatorContext = ({ children }) => {
         type: ACTIONS.places,
         payload: data,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      notify(`${e.response.status}: ${e.response.statusText}`, "error");
     }
   }
 
@@ -46,8 +47,9 @@ const NavigatorContext = ({ children }) => {
     try {
       await axios.delete(`${API}/${id}`);
       getPlaces();
+      notify("Success");
     } catch (e) {
-      console.log(e);
+      notify(`${e.response.status}: ${e.response.statusText}`, "error");
     }
   }
 
@@ -59,23 +61,25 @@ const NavigatorContext = ({ children }) => {
         payload: data,
       });
     } catch (e) {
-      console.log(e);
+      notify(`${e.response.status}: ${e.response.statusText}`, "error");
     }
   }
 
   async function updatePlace(id, newData) {
     try {
       await axios.patch(`${API}/${id}`, newData);
+      notify("Success Update");
     } catch (e) {
-      console.log(e);
+      notify(`${e.response.status}: ${e.response.statusText}`, "error");
     }
   }
 
   async function addPlace(newPlace) {
     try {
       await axios.post(API, newPlace);
-    } catch (error) {
-      console.log(error);
+      notify("Place added successfully");
+    } catch (e) {
+      notify(`${e.response.status}: ${e.response.statusText}`, "error");
     }
   }
 
