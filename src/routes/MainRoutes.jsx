@@ -6,6 +6,12 @@ import MenuPage from "../pages/MenuPage";
 import AddPage from "../pages/AddPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import UpdatePage from "../pages/UpdatePage";
+import HospitalPage from "../pages/HospitalPage";
+import PolicePage from "../pages/PolicePage";
+import CafePage from "../pages/CafePage";
+import MallPage from "../pages/MallPage";
+import BarPage from "../pages/BarPage";
+import ParkPage from "../pages/ParkPage";
 
 const MainRoutes = () => {
   return (
@@ -15,6 +21,12 @@ const MainRoutes = () => {
         <Route path="/add" element={<AddPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/update/:id" element={<UpdatePage />} />
+        <Route path="/hospital" element={<HospitalPage />} />
+        <Route path="/police" element={<PolicePage />} />
+        <Route path="/cafe" element={<CafePage />} />
+        <Route path="/mall" element={<MallPage />} />
+        <Route path="/bar" element={<BarPage />} />
+        <Route path="/park" element={<ParkPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
