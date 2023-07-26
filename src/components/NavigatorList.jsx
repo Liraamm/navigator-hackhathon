@@ -6,7 +6,9 @@ import NavigatorItem from "./NavigatorItem";
 const NavigatorList = () => {
   const { places, getPlaces } = useNavigatorContext();
   useEffect(() => {
-    getPlaces();
+    setTimeout(() => {
+      getPlaces();
+    }, 50);
   }, []);
 
   return (

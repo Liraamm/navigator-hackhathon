@@ -16,6 +16,9 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import MapIcon from "@mui/icons-material/Map";
+import { useAuthContext } from "../contexts/AuthContext";
+import { Link, NavLink } from "react-router-dom";
+import { Avatar, Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,7 +60,31 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+const pages = [
+  {
+    title: "Menu",
+    link: "/menu",
+  },
+];
+
+const adminPages = [
+  {
+    title: "Add Place",
+    link: "/add",
+  },
+];
+
+export default function Navbar() {
+  const { user, logout, isAdmin } = useAuthContext();
+
+  function getPages() {
+    if (isAdmin()) {
+      return pages.concat(adminPages);
+    } else {
+      return pages;
+    }
+  }
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -98,8 +125,14 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose();
+          logout();
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -156,8 +189,8 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "black" }}>
+    <Box sx={{ flexGrow: 1, position: "sticky", top: 0, zIndex: 99 }}>
+      <AppBar position="static" sx={{ backgroundColor: "midnightblue" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -171,9 +204,25 @@ export default function PrimarySearchAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            // component={Link}
+            // to="/"
             sx={{ display: { xs: "none", sm: "block" } }}
-          ></Typography>
+          >
+            {/* City MAP */}
+          </Typography>
+
+          <Box sx={{ display: "flex", ml: 2 }}>
+            {getPages().map((page) => (
+              <Button
+                component={NavLink}
+                to={page.link}
+                sx={{ my: 2, color: "white" }}
+                key={page.title}
+              >
+                {page.title}
+              </Button>
+            ))}
+          </Box>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -183,6 +232,7 @@ export default function PrimarySearchAppBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
@@ -190,7 +240,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={99} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -203,17 +253,33 @@ export default function PrimarySearchAppBar() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+
+            {!user ? (
+              <Button component={Link} to="/auth" sx={{ color: "white" }}>
+                Login
+              </Button>
+            ) : (
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <Avatar
+                  sx={{ textTransform: "uppercase" }}
+                  src={user.photoURL}
+                  alt={user.displayName}
+                >
+                  {user.displayName && user.displayName.split(" ")[0][0]}
+                  {user.displayName &&
+                    user.displayName.includes(" ") &&
+                    user.displayName.split(" ")[1][0]}
+                </Avatar>
+              </IconButton>
+            )}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

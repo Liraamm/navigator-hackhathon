@@ -1,12 +1,9 @@
-import "./App.css";
+import React from "react";
 import MainRoutes from "./routes/MainRoutes";
 import "react-toastify/dist/ReactToastify.css";
+
 function App() {
-  return (
-    <div className="App">
-      <MainRoutes />
-    </div>
-  );
+  return <MainRoutes />;
 }
 
 export default App;

@@ -12,22 +12,33 @@ import CafePage from "../pages/CafePage";
 import MallPage from "../pages/MallPage";
 import BarPage from "../pages/BarPage";
 import ParkPage from "../pages/ParkPage";
+import AuthPage from "../pages/AuthPage";
+import AdminProtectedRoute from "./AdminProtectedRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 const MainRoutes = () => {
   return (
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/add" element={<AddPage />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/update/:id" element={<UpdatePage />} />
-        <Route path="/hospital" element={<HospitalPage />} />
-        <Route path="/police" element={<PolicePage />} />
-        <Route path="/cafe" element={<CafePage />} />
-        <Route path="/mall" element={<MallPage />} />
-        <Route path="/bar" element={<BarPage />} />
-        <Route path="/park" element={<ParkPage />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/hospital" element={<HospitalPage />} />
+          <Route path="/police" element={<PolicePage />} />
+          <Route path="/cafe" element={<CafePage />} />
+          <Route path="/mall" element={<MallPage />} />
+          <Route path="/bar" element={<BarPage />} />
+          <Route path="/park" element={<ParkPage />} />
+        </Route>
+
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/add" element={<AddPage />} />
+          <Route path="/update/:id" element={<UpdatePage />} />
+        </Route>
       </Route>
+
+      <Route path="/auth" element={<AuthPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
