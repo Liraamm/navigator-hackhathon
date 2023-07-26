@@ -17,48 +17,36 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import MapIcon from "@mui/icons-material/Map";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+import { useAuthContext } from "../contexts/AuthContext";
+import { Link, NavLink } from "react-router-dom";
+import { Avatar, Button } from "@mui/material";
+import LiveSearch from "./LiveSearch";
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+const pages = [
+  {
+    title: "Menu",
+    link: "/menu",
   },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
+];
+
+const adminPages = [
+  {
+    title: "Add Place",
+    link: "/add",
   },
-}));
+];
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
+export default function Navbar() {
+  const { user, logout, isAdmin } = useAuthContext();
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+  function getPages() {
+    if (isAdmin()) {
+      return pages.concat(adminPages);
+    } else {
+      return pages;
+    }
+  }
 
-export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -99,8 +87,14 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose();
+          logout();
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -158,7 +152,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "black" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#7C9D96" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -172,18 +166,27 @@ export default function PrimarySearchAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            // component={Link}
+            // to="/"
             sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            {/* City MAP */}
+          </Typography>
+
+          <Box sx={{ display: "flex", ml: 2 }}>
+            {getPages().map((page) => (
+              <Button
+                component={NavLink}
+                to={page.link}
+                sx={{ my: 2, color: "white" }}
+                key={page.title}
+              >
+                {page.title}
+              </Button>
+            ))}
+          </Box>
           ></Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+          <LiveSearch />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
@@ -191,7 +194,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={99} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -204,17 +207,33 @@ export default function PrimarySearchAppBar() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+
+            {!user ? (
+              <Button component={Link} to="/auth" sx={{ color: "white" }}>
+                Login
+              </Button>
+            ) : (
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <Avatar
+                  sx={{ textTransform: "uppercase" }}
+                  src={user.photoURL}
+                  alt={user.displayName}
+                >
+                  {user.displayName && user.displayName.split(" ")[0][0]}
+                  {user.displayName &&
+                    user.displayName.includes(" ") &&
+                    user.displayName.split(" ")[1][0]}
+                </Avatar>
+              </IconButton>
+            )}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

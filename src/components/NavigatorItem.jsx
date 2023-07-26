@@ -1,12 +1,14 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { useNavigatorContext } from "../contexts/NavigatorContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import { useAuthContext } from "../contexts/AuthContext";
 
 const NavigatorItem = ({ item }) => {
   const { removePlace } = useNavigatorContext();
+  const { isAdmin } = useAuthContext();
   const navigate = useNavigate();
 
   return (
@@ -32,22 +34,27 @@ const NavigatorItem = ({ item }) => {
             click here
           </a>
         </p>
-
-        <p>Learn more</p>
-        <Button
-          sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
-          onClick={() => navigate(`/update/${item.id}`)}
-        >
-          Edit
-          {<BorderColorIcon fontSize="small" />}
-        </Button>
-        <Button
-          sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
-          onClick={() => removePlace(item.id)}
-        >
-          Delete
-          {<DeleteIcon fontSize="small" />}
-        </Button>
+        <Link to={item.path}>
+          <p>Learn more</p>
+        </Link>
+        {isAdmin() && (
+          <>
+            <Button
+              sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
+              onClick={() => navigate(`/update/${item.id}`)}
+            >
+              Edit
+              {<BorderColorIcon fontSize="small" />}
+            </Button>
+            <Button
+              sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
+              onClick={() => removePlace(item.id)}
+            >
+              Delete
+              {<DeleteIcon fontSize="small" />}
+            </Button>
+          </>
+        )}
       </span>
     </div>
   );
