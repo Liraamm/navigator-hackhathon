@@ -15,6 +15,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useAuthContext } from "../contexts/AuthContext";
+import { Navigate } from "react-router";
 
 function Copyright() {
   return (
@@ -35,6 +37,7 @@ function Copyright() {
 const defaultTheme = createTheme();
 
 export default function Album() {
+  const { user, isAdmin } = useAuthContext();
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />

@@ -16,9 +16,36 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import MapIcon from "@mui/icons-material/Map";
+import { useAuthContext } from "../contexts/AuthContext";
+import { Link, NavLink } from "react-router-dom";
+import { Avatar, Button } from "@mui/material";
 import LiveSearch from "./LiveSearch";
 
-export default function PrimarySearchAppBar() {
+const pages = [
+  {
+    title: "Menu",
+    link: "/menu",
+  },
+];
+
+const adminPages = [
+  {
+    title: "Add Place",
+    link: "/add",
+  },
+];
+
+export default function Navbar() {
+  const { user, logout, isAdmin } = useAuthContext();
+
+  function getPages() {
+    if (isAdmin()) {
+      return pages.concat(adminPages);
+    } else {
+      return pages;
+    }
+  }
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -59,8 +86,14 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose();
+          logout();
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -132,8 +165,25 @@ export default function PrimarySearchAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            // component={Link}
+            // to="/"
             sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            {/* City MAP */}
+          </Typography>
+
+          <Box sx={{ display: "flex", ml: 2 }}>
+            {getPages().map((page) => (
+              <Button
+                component={NavLink}
+                to={page.link}
+                sx={{ my: 2, color: "white" }}
+                key={page.title}
+              >
+                {page.title}
+              </Button>
+            ))}
+          </Box>
           ></Typography>
           <LiveSearch />
           <Box sx={{ flexGrow: 1 }} />
@@ -143,7 +193,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={99} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -156,17 +206,33 @@ export default function PrimarySearchAppBar() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+
+            {!user ? (
+              <Button component={Link} to="/auth" sx={{ color: "white" }}>
+                Login
+              </Button>
+            ) : (
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <Avatar
+                  sx={{ textTransform: "uppercase" }}
+                  src={user.photoURL}
+                  alt={user.displayName}
+                >
+                  {user.displayName && user.displayName.split(" ")[0][0]}
+                  {user.displayName &&
+                    user.displayName.includes(" ") &&
+                    user.displayName.split(" ")[1][0]}
+                </Avatar>
+              </IconButton>
+            )}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

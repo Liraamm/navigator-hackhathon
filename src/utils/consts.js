@@ -7,3 +7,5 @@ export const ACTIONS = {
 };
 
 export const LIMIT = 3;
+
+export const ADMINS = ["baag@mail.com"];

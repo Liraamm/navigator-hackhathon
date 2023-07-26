@@ -26,9 +26,6 @@ const MenuPage = () => {
 
   return (
     <div>
-      <Box sx={{ maxWidth: "max-content", margin: "30px auto" }}>
-        <Filter />
-      </Box>
       <NavigatorList />
       <Box
         sx={{
