@@ -34,7 +34,7 @@ const MenuPage = () => {
         sx={{
           maxWidth: "max-content",
           margin: "50px auto",
-          backgroundColor: "#35A29F",
+          backgroundColor: "#7C9D96",
           borderRadius: "10px",
         }}
       >
