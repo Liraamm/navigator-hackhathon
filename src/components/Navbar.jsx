@@ -172,7 +172,6 @@ export default function Navbar() {
           >
             {/* City MAP */}
           </Typography>
-
           <Box sx={{ display: "flex", ml: 2 }}>
             {getPages().map((page) => (
               <Button
@@ -185,7 +184,6 @@ export default function Navbar() {
               </Button>
             ))}
           </Box>
-          ></Typography>
           <LiveSearch />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
