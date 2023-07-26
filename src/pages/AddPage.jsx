@@ -81,6 +81,7 @@ export default function AddPage() {
               autoFocus
               value={formValue.title}
               onChange={handleChange}
+              color="success"
             />
             <TextField
               margin="normal"
@@ -90,6 +91,7 @@ export default function AddPage() {
               label="Description"
               value={formValue.description}
               onChange={handleChange}
+              color="success"
             />
             <TextField
               margin="normal"
@@ -99,6 +101,7 @@ export default function AddPage() {
               label="Image"
               value={formValue.image}
               onChange={handleChange}
+              color="success"
             />
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Category</InputLabel>
@@ -107,6 +110,7 @@ export default function AddPage() {
                 onChange={handleChange}
                 name="category"
                 label="Category"
+                color="success"
               >
                 <MenuItem value="Emergency">Emergency</MenuItem>
                 <MenuItem value="Entertainment">Entertainment</MenuItem>
@@ -120,6 +124,7 @@ export default function AddPage() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              color="success"
             >
               Add new place
             </Button>
