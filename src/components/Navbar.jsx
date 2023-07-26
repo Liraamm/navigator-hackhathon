@@ -16,6 +16,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import MapIcon from "@mui/icons-material/Map";
+import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import { useAuthContext } from "../contexts/AuthContext";
 import { Link, NavLink } from "react-router-dom";
 import { Avatar, Button } from "@mui/material";
