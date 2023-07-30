@@ -15,7 +15,7 @@ const NavigatorList = () => {
     <Box
       sx={{
         display: "flex",
-        rowGap: "30px",
+        // rowGap: "30px",
         // flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-evenly",

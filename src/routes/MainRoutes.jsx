@@ -15,6 +15,7 @@ import ParkPage from "../pages/ParkPage";
 import AuthPage from "../pages/AuthPage";
 import AdminProtectedRoute from "./AdminProtectedRoute";
 import ProtectedRoute from "./ProtectedRoute";
+import CommentsPage from "../pages/CommentsPage";
 
 const MainRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const MainRoutes = () => {
           <Route path="/mall" element={<MallPage />} />
           <Route path="/bar" element={<BarPage />} />
           <Route path="/park" element={<ParkPage />} />
+          <Route path="/comments/:id" element={<CommentsPage />} />
         </Route>
 
         <Route element={<AdminProtectedRoute />}>
