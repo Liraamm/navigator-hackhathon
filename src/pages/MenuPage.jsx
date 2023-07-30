@@ -5,6 +5,7 @@ import { useNavigatorContext } from "../contexts/NavigatorContext";
 import { LIMIT } from "../utils/consts";
 import { Box, Pagination } from "@mui/material";
 import Filter from "../components/Filter";
+import { Button } from "semantic-ui-react";
 
 const MenuPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
