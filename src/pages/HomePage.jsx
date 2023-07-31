@@ -3,6 +3,11 @@ import { Button } from "@mui/material";
 import * as React from "react";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  React.useEffect(() => {
+    setSearchParams({});
+  }, []);
   return (
     <div className="home">
       <div className="overplay"></div>
