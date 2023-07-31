@@ -1,24 +1,26 @@
 import React from "react";
-import { Button } from "@mui/material";
-import { useNavigatorContext } from "../contexts/NavigatorContext";
-import { Link, useNavigate } from "react-router-dom";
-import DeleteIcon from "@mui/icons-material/Delete";
-import BorderColorIcon from "@mui/icons-material/BorderColor";
-import { useAuthContext } from "../contexts/AuthContext";
+import { Card, CardContent, Typography, Button } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useFavouriteContext } from "../contexts/FavouriteContext";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { isAdmin } from "@firebase/util";
 
-const NavigatorItem = ({ item }) => {
-  const { removePlace } = useNavigatorContext();
-  const { addToFavourite } = useFavouriteContext();
-  const { isAdmin } = useAuthContext();
+const FavouriteItem = ({ item }) => {
+  const { removeFromFavourite } = useFavouriteContext();
+
   const navigate = useNavigate();
+
+  const handleRemoveFromFavourite = () => {
+    removeFromFavourite(item.id);
+  };
 
   return (
     <div className="card">
       <div>
         <div className="icon">
-          <img width={150} src={item.image} />
+          <img width={150} src={item.image} alt={item.title} />
         </div>
         <strong>{item.title}</strong>
         <div className="card__body">Category: {item.category}</div>
@@ -41,17 +43,48 @@ const NavigatorItem = ({ item }) => {
               }}
               href="https://t.me/navBotikBot"
               target="_blank"
+              rel="noopener noreferrer"
             >
               click here
             </a>
           </p>
         </p>
         <Link to={item.path}>
-          <p style={{ textDecoration: "none", color: "#f4f2de" }}>Learn more</p>
+          <Button
+            sx={{
+              textTransform: "capitalize",
+              color: "#F4F2DE",
+              gap: "5px",
+              fontSize: "0.5em",
+            }}
+          >
+            Learn more
+          </Button>
         </Link>
         <Link to={`/comments/${item.id}`}>
-          <p style={{ textDecoration: "none", color: "#f4f2de" }}>Comments</p>
+          <Button
+            sx={{
+              textTransform: "capitalize",
+              color: "#F4F2DE",
+              gap: "5px",
+              fontSize: "0.5em",
+            }}
+          >
+            Comments
+          </Button>
         </Link>
+        <Button
+          sx={{
+            textTransform: "capitalize",
+            color: "#F4F2DE",
+            gap: "5px",
+            fontSize: "0.5em",
+          }}
+          onClick={handleRemoveFromFavourite}
+        >
+          Remove from Favourite
+          <FavoriteIcon fontSize="small" />
+        </Button>
         {isAdmin() && (
           <>
             <Button
@@ -64,7 +97,7 @@ const NavigatorItem = ({ item }) => {
               onClick={() => navigate(`/update/${item.id}`)}
             >
               Edit
-              {<BorderColorIcon fontSize="small" />}
+              <BorderColorIcon fontSize="small" />
             </Button>
             <Button
               sx={{
@@ -73,22 +106,9 @@ const NavigatorItem = ({ item }) => {
                 gap: "5px",
                 fontSize: "0.5em",
               }}
-              onClick={() => removePlace(item.id)}
             >
               Delete
-              {<DeleteIcon fontSize="small" />}
-            </Button>
-            <Button
-              sx={{
-                textTransform: "capitalize",
-                color: "#F4F2DE",
-                gap: "5px",
-                fontSize: "0.5em",
-              }}
-              onClick={() => addToFavourite(item)}
-            >
-              Add to Favourite
-              {<FavoriteIcon fontSize="small" />}
+              <DeleteIcon fontSize="small" />
             </Button>
           </>
         )}
@@ -97,4 +117,4 @@ const NavigatorItem = ({ item }) => {
   );
 };
 
-export default NavigatorItem;
+export default FavouriteItem;
