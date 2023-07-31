@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import Box from "@mui/material/Box/Box";
 import axios from "axios";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 
 const PolicePage = () => {
   const [police, setPolice] = useState([]);
@@ -24,25 +27,29 @@ const PolicePage = () => {
     <div
       style={{
         width: "100%",
-        display: "flex",
-        justifyContent: "space-evenly",
+        textAlign: "center",
       }}
     >
       {police.map((item) => {
         return (
-          <div key={item.id}>
-            <div>
-              <div>
-                <img width={200} src={item.image} />
-              </div>
-              <div>
-                <ListItemText
-                  primary={item.name}
-                  secondary={item.destination}
-                />
-              </div>
-            </div>
-          </div>
+          <Card sx={{ maxWidth: 345, margin: "0 auto", marginTop: "40px" }}>
+            <CardActionArea key={item.id}>
+              <CardMedia
+                component="img"
+                height="140"
+                image={item.image}
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {item.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {item.destination}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         );
       })}
     </div>
