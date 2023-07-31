@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import { useAuthContext } from "../contexts/AuthContext";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const NavigatorItem = ({ item }) => {
   const { removePlace } = useNavigatorContext();
@@ -74,6 +75,13 @@ const NavigatorItem = ({ item }) => {
             >
               Delete
               {<DeleteIcon fontSize="small" />}
+            </Button>
+            <Button
+              sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
+              onClick={() => removePlace(item.id)}
+            >
+              Add to Favourite
+              {<FavoriteIcon fontSize="small" />}
             </Button>
           </>
         )}

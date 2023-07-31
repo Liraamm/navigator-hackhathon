@@ -2,7 +2,10 @@ import video from "../assets/video.mp4";
 import { Button } from "@mui/material";
 import * as React from "react";
 import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router";
 
+const HomePage = () => {
+  const navigate = useNavigate();
 const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   React.useEffect(() => {
@@ -23,6 +26,7 @@ const HomePage = () => {
             backgroundColor: "#E9B384",
             borderRadius: "100px 10px 100px 10px",
           }}
+          onClick={() => navigate("/subscribe")}
         >
           Welcome
         </Button>
