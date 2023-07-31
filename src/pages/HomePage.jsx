@@ -1,8 +1,10 @@
 import video from "../assets/video.mp4";
 import { Button } from "@mui/material";
 import * as React from "react";
+import { useNavigate } from "react-router";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <div className="home">
       <div className="overplay"></div>
@@ -17,6 +19,7 @@ const HomePage = () => {
             backgroundColor: "black",
             borderRadius: "100px 10px 100px 10px",
           }}
+          onClick={() => navigate("/subscribe")}
         >
           Welcome
         </Button>

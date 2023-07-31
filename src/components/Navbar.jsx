@@ -1,26 +1,22 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import MapIcon from "@mui/icons-material/Map";
-import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import { useAuthContext } from "../contexts/AuthContext";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
 import { Avatar, Button } from "@mui/material";
 import LiveSearch from "./LiveSearch";
+import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const pages = [
   {
@@ -38,6 +34,8 @@ const adminPages = [
 
 export default function Navbar() {
   const { user, logout, isAdmin } = useAuthContext();
+
+  const navigate = useNavigate();
 
   function getPages() {
     if (isAdmin()) {
@@ -117,11 +115,11 @@ export default function Navbar() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
+          <Badge badgeContent={99} color="error">
+            <ShoppingCartIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <p>Cart</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -130,10 +128,10 @@ export default function Navbar() {
           color="inherit"
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+            <LocalAtmIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Subs</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -192,8 +190,8 @@ export default function Navbar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={99} color="error">
-                <MailIcon />
+              <Badge badgeContent={12} color="error">
+                <ShoppingCartIcon onClick={() => navigate("/cart")} />
               </Badge>
             </IconButton>
             <IconButton
@@ -201,8 +199,17 @@ export default function Navbar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+              <Badge badgeContent={3} color="error">
+                <FavoriteIcon onClick={() => navigate("/favourite")} />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={3} color="error">
+                <LocalAtmIcon onClick={() => navigate("/subscribe")} />
               </Badge>
             </IconButton>
 

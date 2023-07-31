@@ -13,8 +13,11 @@ import MallPage from "../pages/MallPage";
 import BarPage from "../pages/BarPage";
 import ParkPage from "../pages/ParkPage";
 import AuthPage from "../pages/AuthPage";
+import SubscribePage from "../pages/SubscribePage";
 import AdminProtectedRoute from "./AdminProtectedRoute";
 import ProtectedRoute from "./ProtectedRoute";
+import CartPage from "../pages/CartPage";
+import FavouritePage from "../pages/FavouritePage";
 
 const MainRoutes = () => {
   return (
@@ -30,11 +33,15 @@ const MainRoutes = () => {
           <Route path="/mall" element={<MallPage />} />
           <Route path="/bar" element={<BarPage />} />
           <Route path="/park" element={<ParkPage />} />
-        </Route>
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/favourite" element={<FavouritePage />} />
 
-        <Route element={<AdminProtectedRoute />}>
-          <Route path="/add" element={<AddPage />} />
-          <Route path="/update/:id" element={<UpdatePage />} />
+          <Route path="/subscribe" element={<SubscribePage />}></Route>
+
+          <Route element={<AdminProtectedRoute />}>
+            <Route path="/add" element={<AddPage />} />
+            <Route path="/update/:id" element={<UpdatePage />} />
+          </Route>
         </Route>
       </Route>
 
