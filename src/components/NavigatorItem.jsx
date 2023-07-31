@@ -30,13 +30,18 @@ const NavigatorItem = ({ item }) => {
       >
         <p>
           To get help
-          <a
-            style={{ textDecoration: "none", color: "#f4f2de" }}
-            href="https://t.me/navBotikBot"
-            target="_blank"
-          >
-            click here
-          </a>
+          <p>
+            <a
+              style={{
+                textDecoration: "none",
+                color: "#f4f2de",
+              }}
+              href="https://t.me/navBotikBot"
+              target="_blank"
+            >
+              click here
+            </a>
+          </p>
         </p>
         <Link to={item.path}>
           <p style={{ textDecoration: "none", color: "#f4f2de" }}>Learn more</p>
