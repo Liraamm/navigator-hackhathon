@@ -18,6 +18,7 @@ import AdminProtectedRoute from "./AdminProtectedRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import CartPage from "../pages/CartPage";
 import FavouritePage from "../pages/FavouritePage";
+import CommentsPage from "../pages/CommentsPage";
 
 const MainRoutes = () => {
   return (
@@ -36,7 +37,10 @@ const MainRoutes = () => {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/favourite" element={<FavouritePage />} />
 
-          <Route path="/subscribe" element={<SubscribePage />}></Route>
+          <Route path="/subscribe" element={<SubscribePage />}/>
+          <Route path="/comments/:id" element={<CommentsPage />} />
+        </Route>
+
 
           <Route element={<AdminProtectedRoute />}>
             <Route path="/add" element={<AddPage />} />

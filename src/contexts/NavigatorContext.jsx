@@ -42,8 +42,6 @@ const NavigatorContext = ({ children }) => {
       const { data, headers } = await axios.get(
         `${API}${window.location.search}`
       );
-      console.log(searchParams);
-      console.log(window.location.search);
 
       const totalCount = Math.ceil(headers["x-total-count"] / LIMIT);
 

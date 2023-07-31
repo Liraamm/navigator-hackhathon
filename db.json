@@ -28,7 +28,7 @@
       "id": 5,
       "title": "Mall",
       "image": "https://cdn-icons-png.flaticon.com/512/998/998718.png",
-      "category": "Entertainment",
+      "category": "Shopping",
       "description": "Find a nearby police station! In emergency situation, please contact here:",
       "path": "/mall"
     },
@@ -54,74 +54,241 @@
       "id": 1,
       "name": "Chui hospital",
       "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg"
     },
     {
       "id": 2,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "name": "Улуттук Бейтапкана",
+      "destination": "137 ул. Боконбаева, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipMNtQvvilVTLBxgeh-rlmCObHjTE0SRiWLr9Qdm=s1360-w1360-h1020"
+    },
+    {
+      "id": 3,
+      "name": "Национальный хирургический центр",
+      "destination": "28 ул. Сухомлинова, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipN5NEURpyDclriSKS-eheq4aIT5TVAnuN4dLNtK=s1360-w1360-h1020"
+    },
+    {
+      "id": 4,
+      "name": "4 Гор Больница",
+      "destination": "ул. Кривоносова, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipNm1dCMyfRsXtSCUGO-AgsSdbWnrN8sMjNJ6fTi=s1360-w1360-h1020"
+    },
+    {
+      "id": 5,
+      "name": "Республиканская Инфекционная Больница",
+      "destination": "ул. Льва Толстого, Бишкек 720035",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipN3S9VuF10Nqttw1jr58Og7lE8Bt3b8m_V-ZFFn=s1360-w1360-h1020"
     }
   ],
   "police": [
     {
       "id": 1,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "name": "Городское отделение милиции №1",
+      "destination": "85 ул. Калыка Акиева, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipOAN6SMKFp0td90dANxAbsDHuRRqwHHb1gLXls4=s1360-w1360-h1020"
+    },
+    {
+      "id": 2,
+      "name": "Участковый пункт милиции №20",
+      "destination": "59 ул. Льва Толстого, Бишкек",
+      "image": "https://i.ytimg.com/vi/8F6zuaS39Qc/maxresdefault.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Отдел милиции 7-го участка ОВД",
+      "destination": "Свердловский район г.Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipNfVOw7ncit5V_gPMVzHvO477sJXGCgM3_qEpUv=s1360-w1360-h1020"
+    },
+    {
+      "id": 4,
+      "name": "Городское отделение милиции №8",
+      "destination": "328 просп. Жибек Жолу, Бишкек",
+      "image": "https://i.ytimg.com/vi/8F6zuaS39Qc/maxresdefault.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Участковый пункт милиции №12",
+      "destination": "51 Chuy Ave،, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipOAN6SMKFp0td90dANxAbsDHuRRqwHHb1gLXls4=s1360-w1360-h1020"
     }
   ],
   "cafe": [
     {
       "id": 1,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "name": "Бублик",
+      "destination": "1 ул. Тоголок Молдо, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPrs7Oas4rHuBRX4XiFs4W41gQ2qq4PMlKM0cA3=s1360-w1360-h1020"
     },
     {
-      "id": 1,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "id": 2,
+      "name": "Cafe Relax",
+      "destination": "140 ул. Токтогула, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPK3D-C2LpGWIzIeH6X1L8NXsyP0bxFCSsoN2Rl=s1360-w1360-h1020"
     },
     {
-      "id": 1,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "id": 3,
+      "name": "Вкус Азии",
+      "destination": "Токтогула 165 Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipNliaIIGcUcQaKuigCJmVTTbl6Db3iw7TBeV8Hq=s1360-w1360-h1020"
+    },
+    {
+      "id": 4,
+      "name": "Мустафа",
+      "destination": "Алматинка, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPjCVGk1d2SK7TfFFelg7LY9X_WKDiazthlxMaF=s1360-w1360-h1020"
+    },
+    {
+      "id": 5,
+      "name": "Вкус востока",
+      "destination": "Жибек Жолу 175, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPbDZ0nnWYyTVWv6nJS3jUzUMl5Ef--uOcn_nTy=s1360-w1360-h1020"
     }
   ],
   "mall": [
     {
       "id": 1,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "name": "Азия Молл",
+      "destination": "3 просп. Мира, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipN84pcXkXqBi-5SV2m7gqp26cK5xRXehHaX_O-8=s1360-w1360-h1020"
+    },
+    {
+      "id": 2,
+      "name": "Вефа Центр",
+      "destination": "27, 1 ул. Горького, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipObxYuafwIrV8jWj0xdRr7JXbGgUJCufgb4camb=s1360-w1360-h1020"
+    },
+    {
+      "id": 3,
+      "name": "ЦУМ Айчүрөк",
+      "destination": "155 просп. Чуй, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipMBLvgpaQ2IaKzzr8PdOMN8fZziLfA1FZjBJbOp=s1360-w1360-h1020"
+    },
+    {
+      "id": 4,
+      "name": "ТРЦ Dordoi Plaza 2",
+      "destination": " ул.Ибраимова 115 Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipMZ8mKsV3vBX1t-mrL4-lElV17oXvc7_8wGTZxg=s1360-w1360-h1020"
+    },
+    {
+      "id": 5,
+      "name": "ТРЦ ГУМ",
+      "destination": "92 просп. Чуй, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipMLM3w5wqvg_nfnMRWxQYz6yXVNAwisnEo04v3e=s1360-w1360-h1020"
     }
   ],
   "bar": [
     {
       "id": 1,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "name": "Pinta Pub Frunze",
+      "destination": "99 просп. Манаса, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipMT7etxsp1qzTVNLzMPKnyGIsoV_egiqKoYWWBS=s1360-w1360-h1020"
+    },
+    {
+      "id": 2,
+      "name": "LiveBar Rooms",
+      "destination": "158 просп. Чуй, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipMbdV3JnybOF0vkybo7B2br9NtkUIeeHTsUmqk_=s1360-w1360-h1020"
+    },
+    {
+      "id": 3,
+      "name": "Metro Pub",
+      "destination": "168A просп. Чуй, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipOf4bh5mt9KXxT6qiszLqjUwvkatv4CTns1wvl7=s1360-w1360-h1020"
+    },
+    {
+      "id": 4,
+      "name": "No Name Bar",
+      "destination": "92 ул. Боконбаева, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPlQdrV-GMEULZo9B-U0dKHJvqBtkgZykd2aApS=s1360-w1360-h1020"
+    },
+    {
+      "id": 5,
+      "name": "Center Bar",
+      "destination": "158 просп. Чуй, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPlaje71HDCaJ3KSBlTA4hoSZofq5m394Qdxwbp=s1360-w1360-h1020"
     }
   ],
   "park": [
     {
       "id": 1,
-      "name": "Chui hospital",
-      "destination": "Chui 234",
-      "image": "https://www.yelo.com.kg/img/kg/z/1657822902-18-.jpg",
-      "number": 312367150
+      "name": "Дубовый парк",
+      "destination": "205 ул. Абдумомунова, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPuizI7uB82j0ySgRfYUW8EDOVXiU5zOBdpz5r2=s1360-w1360-h1020"
+    },
+    {
+      "id": 2,
+      "name": "Панфилов парк",
+      "destination": "Бишкек",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipPXORX7rMQYRZLNkmFOPtE5tuWvmQf5bbgSe6fR=w260-h175-n-k-no"
+    },
+    {
+      "id": 3,
+      "name": "Сквер Тоголок Молдо",
+      "destination": "ул. А. Коенкозова, Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipPhSFv7eV1hziX2i-eeDsvkR3kM4wwU7RyYmeci=s1360-w1360-h1020"
+    },
+    {
+      "id": 4,
+      "name": "Парк победы",
+      "destination": "Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipOubvXvhYO7FflTcP_Azjmi4uhXy_Ad4q0p_jVX=s1360-w1360-h1020"
+    },
+    {
+      "id": 5,
+      "name": "Ataturk Park",
+      "destination": "Бишкек",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipP3KAM-SHomzlc-I629iga0XqZhX066Pp1EPoCb=s1360-w1360-h1020"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "Super",
+      "placeId": 1,
+      "userId": 1,
+      "date": "12.02.2003"
+    },
+    {
+      "id": 2,
+      "body": "Super",
+      "placeId": 1,
+      "userId": 1,
+      "date": "12.02.2003"
+    },
+    {
+      "id": 3,
+      "body": "Super",
+      "placeId": 1,
+      "userId": 1,
+      "date": "12.02.2003"
+    },
+    {
+      "id": 4,
+      "body": "Super",
+      "placeId": 2,
+      "userId": 1,
+      "date": "12.02.2003"
+    },
+    {
+      "placeId": "2",
+      "body": "йцукен",
+      "id": 8
+    },
+    {
+      "placeId": "5",
+      "body": "qwerty",
+      "id": 9
+    },
+    {
+      "placeId": "4",
+      "body": "qwertyui",
+      "id": 10
+    },
+    {
+      "placeId": "5",
+      "body": "qwertyui",
+      "id": 11
     }
   ]
 }

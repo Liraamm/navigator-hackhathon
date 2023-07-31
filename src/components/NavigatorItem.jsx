@@ -31,24 +31,46 @@ const NavigatorItem = ({ item }) => {
       >
         <p>
           To get help
-          <a href="https://t.me/navBotikBot" target="_blank">
-            click here
-          </a>
+          <p>
+            <a
+              style={{
+                textDecoration: "none",
+                color: "#f4f2de",
+              }}
+              href="https://t.me/navBotikBot"
+              target="_blank"
+            >
+              click here
+            </a>
+          </p>
         </p>
         <Link to={item.path}>
-          <p>Learn more</p>
+          <p style={{ textDecoration: "none", color: "#f4f2de" }}>Learn more</p>
+        </Link>
+        <Link to={`/comments/${item.id}`}>
+          <p style={{ textDecoration: "none", color: "#f4f2de" }}>Comments</p>
         </Link>
         {isAdmin() && (
           <>
             <Button
-              sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
+              sx={{
+                textTransform: "capitalize",
+                color: "#F4F2DE",
+                gap: "5px",
+                fontSize: "0.5em",
+              }}
               onClick={() => navigate(`/update/${item.id}`)}
             >
               Edit
               {<BorderColorIcon fontSize="small" />}
             </Button>
             <Button
-              sx={{ textTransform: "capitalize", color: "#F4F2DE", gap: "5px" }}
+              sx={{
+                textTransform: "capitalize",
+                color: "#F4F2DE",
+                gap: "5px",
+                fontSize: "0.5em",
+              }}
               onClick={() => removePlace(item.id)}
             >
               Delete
