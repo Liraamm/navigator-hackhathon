@@ -25,7 +25,7 @@ const HomePage = () => {
             backgroundColor: "#E9B384",
             borderRadius: "100px 10px 100px 10px",
           }}
-          onClick={() => navigate("/subscribe")}
+          onClick={() => navigate("/menu")}
         >
           Welcome
         </Button>

@@ -1,8 +1,8 @@
-import { Box, Container } from "@mui/system";
+import { Box, Container, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useSubscribeContext } from "../contexts/SubscribeContext";
-import { Button, IconButton, Typography } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -35,98 +35,95 @@ const CartPage = () => {
 
   if (cart.products.length < 1) {
     return (
-      <>
-        <Container>
-          <div className="bag-content">
-            <div className="header">
-              <h1 className="bag-header">Your cart is empty</h1>
-              <div className="bag-header-message">
-                <span>Sign In to see if you have purchased subs.</span>
-                <span style={{ marginLeft: "8px" }}>Or continue shopping</span>
-              </div>
-            </div>
-            <div className="bag-buttons">
-              <Button variant="contained" onClick={() => navigate("/auth")}>
-                Sign in
-              </Button>
-              <Button variant="contained" onClick={() => navigate("/")}>
-                Continue
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </>
+      <Container>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            mt: 5,
+          }}
+        >
+          <Typography variant="h5" gutterBottom>
+            Your cart is empty
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Sign In to see if you have purchased subs.
+            <br /> Or continue shopping.
+          </Typography>
+          <Box sx={{ mt: 2, display: "flex", gap: "10px" }}>
+            <Button variant="contained" onClick={() => navigate("/auth")}>
+              Sign in
+            </Button>
+            <Button variant="contained" onClick={() => navigate("/")}>
+              Continue
+            </Button>
+          </Box>
+        </Box>
+      </Container>
     );
   }
 
   return (
-    <TableContainer>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell align="left">Days</TableCell>
-            <TableCell align="end">Sub Price</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {cart.products.map((item) => (
-            <TableRow
-              key={item.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {item.title}
-              </TableCell>
-              <TableCell align="right"></TableCell>
-
-              <TableCell align="right">{item.price}</TableCell>
-              <TableCell align="right">{item.subPrice}</TableCell>
-              <TableCell sx={{ display: "flex", alignItems: "center" }}>
-                <IconButton
-                  color="primary"
-                  onClick={(e) => {
-                    if (item.count <= 1) {
-                      deleteProductFromCart(item.id);
-                    } else {
-                      decreaseCount(item.id);
-                    }
-                  }}
-                >
-                  <KeyboardArrowDownIcon />
-                </IconButton>
-                <Typography component={"span"} variant="h6">
-                  {item.count}
-                </Typography>
-                <IconButton
-                  color="primary"
-                  onClick={(e) => increaseCount(item.id)}
-                >
-                  <KeyboardArrowUpIcon />
-                </IconButton>
-              </TableCell>
+    <Container>
+      <TableContainer component={Paper} sx={{ mt: 5 }}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Title</TableCell>
+              <TableCell align="right">Days</TableCell>
+              <TableCell align="right">Sub Price</TableCell>
+              <TableCell align="right">Total Price</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {cart.products.map((item) => (
+              <TableRow
+                key={item.id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {item.title}
+                </TableCell>
+                <TableCell align="right">{item.date}</TableCell>
+                <TableCell align="right">${item.price}</TableCell>
+                <TableCell align="right">${item.subPrice}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+          <TableRow>
+            <TableCell colSpan={4} /> {/* This fills the cell to the end */}
+            <TableCell align="right">Total Days: {cart.totalDate}</TableCell>
+            <TableCell align="right">Total Price: ${cart.totalPrice}</TableCell>
+          </TableRow>
+        </Table>
+      </TableContainer>
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: "column",
+          justifyContent: "center",
           alignItems: "center",
-          padding: "0 30px",
+          mt: 3,
         }}
       >
-        <Typography variant="h4">
+        <Typography variant="h5" gutterBottom>
           Total Days: {cart.totalDate}
-          <br />
+        </Typography>
+        <Typography variant="h5" gutterBottom>
           Total Price: ${cart.totalPrice}
         </Typography>
-        <Button component={Link} to="/" variant="contained">
+        <Button
+          component={Link}
+          to="/"
+          variant="contained"
+          sx={{ mt: 2, width: "200px" }}
+        >
           Buy
         </Button>
       </Box>
-    </TableContainer>
+    </Container>
   );
 };
 

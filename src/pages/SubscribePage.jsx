@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,9 +7,16 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { useSubscribeContext } from "../contexts/SubscribeContext";
 
-export default function BasicCard() {
-  const { addProductToCart, isAlreadyInCart, deleteProductFromCart } =
-    useSubscribeContext();
+const BasicCard = () => {
+  const { addProductToCart } = useSubscribeContext();
+
+  const subStandard = {
+    id: Date.now(),
+    title: "Standard",
+    description: "Standard Subs",
+    price: 0,
+    date: 0,
+  };
 
   const subPro = {
     id: Date.now(),
@@ -32,27 +39,36 @@ export default function BasicCard() {
       style={{
         display: "flex",
         justifyContent: "center",
-        alignContent: "center",
+        alignItems: "center",
         flexDirection: "row",
-        backgroundImage: "url(https://wallpaperaccess.com/full/333537.jpg)",
+        flexWrap: "wrap",
+        backgroundColor: "#f0f0f0",
+        height: "100vh",
+        padding: "20px",
+        boxSizing: "border-box",
       }}
     >
-      {/* First card */}
-      <Card sx={{ width: "25vw", height: "40vh", margin: "10%" }}>
+      <Card
+        sx={{
+          width: "200px",
+          height: "300px",
+          margin: "10px",
+          backgroundColor: "#FAD0C9",
+        }}
+      >
         <CardContent sx={{ textAlign: "center" }}>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            sub/price
-          </Typography>
           <Typography variant="h5" component="div">
             0$/mo
           </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            standard
+          <Typography
+            sx={{ mb: 1.5, fontSize: "17px", color: "black" }}
+            color="text.secondary"
+          >
+            STANDARD
           </Typography>
           <Typography variant="body2">
-            standard type of sub
+            This is Standard type of subscription
             <br />
-            {'"free type of sub"'}
           </Typography>
         </CardContent>
         <CardActions>
@@ -73,30 +89,26 @@ export default function BasicCard() {
         </CardActions>
       </Card>
 
-      {/* Second Card */}
       <Card
         sx={{
-          width: "25vw",
-          height: "40vh",
-          margin: "10%",
-          backgroundColor: "gray",
-          borderRadius: "40px 40px 40px 40px",
+          width: "200px",
+          height: "300px",
+          margin: "10px",
+          backgroundColor: "#FF9A8B",
+          borderRadius: "10px",
         }}
       >
         <CardContent sx={{ textAlign: "center", color: "white" }}>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            sub/price
-          </Typography>
           <Typography variant="h5" component="div">
             15$/mo
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="black" fontSize="25px">
-            Pro
+            PRO
           </Typography>
           <Typography variant="body2">
-            Pro type of sub
+            This type of subscription allows you to get more content, and
+            support us
             <br />
-            {'"free type of sub"'}
           </Typography>
         </CardContent>
         <CardActions>
@@ -116,20 +128,16 @@ export default function BasicCard() {
         </CardActions>
       </Card>
 
-      {/* Third Card */}
       <Card
         sx={{
-          width: "30vw",
-          height: "40vh",
-          margin: "10%",
-          backgroundColor: "gold",
-          borderRadius: "40px 40px 40px 40px",
+          width: "200px",
+          height: "300px",
+          margin: "10px",
+          backgroundColor: "#FF6B6B",
+          borderRadius: "10px",
         }}
       >
         <CardContent sx={{ textAlign: "center", color: "white" }}>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            sub/price
-          </Typography>
           <Typography variant="h5" component="div">
             30$/mo
           </Typography>
@@ -137,9 +145,8 @@ export default function BasicCard() {
             Extra
           </Typography>
           <Typography variant="body2">
-            Extra type of sub
+            Extra type of subscription will give you full content of our project
             <br />
-            {'"free type of sub"'}
           </Typography>
         </CardContent>
         <CardActions>
@@ -160,4 +167,6 @@ export default function BasicCard() {
       </Card>
     </div>
   );
-}
+};
+
+export default BasicCard;
