@@ -11,19 +11,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { useAuthContext } from "../contexts/AuthContext";
-import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { Avatar, Button } from "@mui/material";
 import LiveSearch from "./LiveSearch";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useNavigatorContext } from "../contexts/NavigatorContext";
 
-const pages = [
-  {
-    title: "Menu",
-    link: "/menu",
-  },
-];
+const pages = [];
 
 const adminPages = [
   {
@@ -34,8 +36,10 @@ const adminPages = [
 
 export default function Navbar() {
   const { user, logout, isAdmin } = useAuthContext();
+  const { setPage } = useNavigatorContext();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   function getPages() {
     if (isAdmin()) {
@@ -169,15 +173,22 @@ export default function Navbar() {
           >
             Kayakta
           </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            // component={Link}
-            // to="/"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            {/* City MAP */}
-          </Typography>
+
+          <Box sx={{ display: "flex", ml: 2 }}>
+            <Button
+              sx={{ my: 2, color: "white" }}
+              onClick={(e) => {
+                if (location.pathname === "/menu") {
+                  return;
+                }
+                setPage(1);
+                navigate("/menu");
+              }}
+            >
+              Menu
+            </Button>
+          </Box>
+
           <Box sx={{ display: "flex", ml: 2 }}>
             {getPages().map((page) => (
               <Button
