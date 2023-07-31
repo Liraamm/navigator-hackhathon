@@ -37,15 +37,13 @@ const MainRoutes = () => {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/favourite" element={<FavouritePage />} />
 
-          <Route path="/subscribe" element={<SubscribePage />}/>
+          <Route path="/subscribe" element={<SubscribePage />} />
           <Route path="/comments/:id" element={<CommentsPage />} />
         </Route>
 
-
-          <Route element={<AdminProtectedRoute />}>
-            <Route path="/add" element={<AddPage />} />
-            <Route path="/update/:id" element={<UpdatePage />} />
-          </Route>
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/add" element={<AddPage />} />
+          <Route path="/update/:id" element={<UpdatePage />} />
         </Route>
       </Route>
 

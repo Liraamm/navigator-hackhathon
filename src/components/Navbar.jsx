@@ -17,6 +17,7 @@ import LiveSearch from "./LiveSearch";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useSubscribeContext } from "../contexts/SubscribeContext";
 
 const pages = [
   {
@@ -34,7 +35,7 @@ const adminPages = [
 
 export default function Navbar() {
   const { user, logout, isAdmin } = useAuthContext();
-
+  const { cart } = useSubscribeContext();
   const navigate = useNavigate();
 
   function getPages() {
@@ -198,7 +199,7 @@ export default function Navbar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={12} color="error">
+              <Badge badgeContent={cart.products.length} color="error">
                 <ShoppingCartIcon onClick={() => navigate("/cart")} />
               </Badge>
             </IconButton>

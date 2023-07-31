@@ -6,7 +6,6 @@ import { useNavigate } from "react-router";
 
 const HomePage = () => {
   const navigate = useNavigate();
-const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   React.useEffect(() => {
     setSearchParams({});
