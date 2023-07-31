@@ -101,6 +101,7 @@ const SubscribeContext = ({ children }) => {
       if (item.id === id) {
         item.count -= 1;
         item.subPrice -= item.price;
+        item.subDate -= item.date;
       }
       return item;
     });

@@ -2,22 +2,17 @@ import { Box, Container } from "@mui/system";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useSubscribeContext } from "../contexts/SubscribeContext";
-import {
-  Button,
-  IconButton,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@mui/material";
-
+import { Button, IconButton, Typography } from "@mui/material";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
-import LocalAtmIcon from "@mui/icons-material/LocalAtm";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const CartPage = () => {
   const {
@@ -36,7 +31,7 @@ const CartPage = () => {
     getCart();
   }, []);
 
-  console.log(cart);
+  console.log(cart.products);
 
   if (cart.products.length < 1) {
     return (
@@ -63,6 +58,7 @@ const CartPage = () => {
       </>
     );
   }
+
   return (
     <TableContainer>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

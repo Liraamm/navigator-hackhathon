@@ -86,49 +86,14 @@ const CartPage = () => {
               <TableCell align="right">{item.price}</TableCell>
               <TableCell align="right">{item.subPrice}</TableCell>
               <TableCell sx={{ display: "flex", alignItems: "center" }}>
-                <IconButton
-                  color="primary"
-                  onClick={(e) => {
-                    if (item.count <= 1) {
-                      deleteProductFromCart(item.id);
-                    } else {
-                      decreaseCount(item.id);
-                    }
-                  }}
-                >
-                  <KeyboardArrowDownIcon />
-                </IconButton>
                 <Typography component={"span"} variant="h6">
                   {item.count}
                 </Typography>
-                <IconButton
-                  color="primary"
-                  onClick={(e) => increaseCount(item.id)}
-                >
-                  <KeyboardArrowUpIcon />
-                </IconButton>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "0 30px",
-        }}
-      >
-        <Typography variant="h4">
-          Total Days: {cart.totalDate}
-          <br />
-          Total Price: ${cart.totalPrice}
-        </Typography>
-        <Button component={Link} to="/" variant="contained">
-          Buy
-        </Button>
-      </Box>
     </TableContainer>
   );
 };
