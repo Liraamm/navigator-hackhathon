@@ -9,11 +9,7 @@ const FavouritePage = () => {
   const { favourite, addToFavourite } = useFavouriteContext();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Ваш код для получения избранных мест (если требуется)
-    // Например, если у вас есть данные из API, можно сделать запрос здесь
-    // и установить полученные данные в стейт favourite
-  }, []);
+  useEffect(() => {}, []);
 
   if (favourite.length < 1) {
     return (
@@ -26,22 +22,25 @@ const FavouritePage = () => {
   }
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        mt: 5,
-      }}
-    >
-      {/* {favourite.map((item) => (
-        <FavouriteItem key={item.id} item={item} />
-      ))} */}
-      {favourite.map((item) => (
-        <FavouriteItem key={item.id} item={item} />
-      ))}
-    </Box>
+    <Container>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "16px",
+          justifyContent: "center",
+          mt: 5,
+        }}
+      >
+        {favourite.map((item) => (
+          <FavouriteItem
+            key={item.id}
+            item={item}
+            sx={{ height: "100%", overflow: "auto" }}
+          />
+        ))}
+      </Box>
+    </Container>
   );
 };
 

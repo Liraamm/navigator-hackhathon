@@ -120,25 +120,38 @@ export default function Navbar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/cart")}>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={99} color="error">
+          <Badge badgeContent={cart.products.length} color="error">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
         <p>Cart</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/subscribe")}>
         <IconButton
           size="large"
-          aria-label="show 17 new notifications"
+          // aria-label="show 17 new notifications"
           color="inherit"
         >
           <Badge color="error">
             <LocalAtmIcon />
           </Badge>
         </IconButton>
-        <p>Subs</p>
+
+        <p>Subscription</p>
+      </MenuItem>
+      <MenuItem onClick={() => navigate("/favourite")}>
+        <IconButton
+          size="large"
+          // aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge badgeContent={favourite.length} color="error">
+            <FavoriteIcon onClick={() => navigate("/favourite")} />
+          </Badge>
+        </IconButton>
+        <p>Favourites</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton

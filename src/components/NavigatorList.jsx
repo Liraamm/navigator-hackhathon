@@ -1,10 +1,11 @@
-import { Box, CircularProgress } from "@mui/material";
 import React, { useEffect } from "react";
-import { useNavigatorContext } from "../contexts/NavigatorContext";
 import NavigatorItem from "./NavigatorItem";
+import { useNavigatorContext } from "../contexts/NavigatorContext";
+import { Box, CircularProgress } from "@mui/material";
 
 const NavigatorList = () => {
   const { places, getPlaces } = useNavigatorContext();
+
   useEffect(() => {
     setTimeout(() => {
       getPlaces();
@@ -15,10 +16,10 @@ const NavigatorList = () => {
     <Box
       sx={{
         display: "flex",
-        // rowGap: "30px",
-        // flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-evenly",
+        flexWrap: "wrap", // Добавляем flex-wrap: wrap, чтобы элементы переносились на следующую строку при необходимости
+        gap: "20px",
+        justifyContent: "center", // Центрируем элементы по горизонтали
+        alignItems: "center", // Выравниваем элементы по вертикали
         mt: 5,
         flexWrap: "wrap",
       }}
@@ -28,7 +29,7 @@ const NavigatorList = () => {
       ) : (
         <div>
           <CircularProgress
-            sx={{ mx: "auto", mt: 5, displaY: "block" }}
+            sx={{ mx: "auto", mt: 5, display: "block" }}
             size={100}
           />
         </div>
