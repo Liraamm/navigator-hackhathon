@@ -241,54 +241,5 @@
       "image": "https://lh3.googleusercontent.com/p/AF1QipP3KAM-SHomzlc-I629iga0XqZhX066Pp1EPoCb=s1360-w1360-h1020"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "Super",
-      "placeId": 1,
-      "userId": 1,
-      "date": "12.02.2003"
-    },
-    {
-      "id": 2,
-      "body": "Super",
-      "placeId": 1,
-      "userId": 1,
-      "date": "12.02.2003"
-    },
-    {
-      "id": 3,
-      "body": "Super",
-      "placeId": 1,
-      "userId": 1,
-      "date": "12.02.2003"
-    },
-    {
-      "id": 4,
-      "body": "Super",
-      "placeId": 2,
-      "userId": 1,
-      "date": "12.02.2003"
-    },
-    {
-      "placeId": "2",
-      "body": "йцукен",
-      "id": 8
-    },
-    {
-      "placeId": "5",
-      "body": "qwerty",
-      "id": 9
-    },
-    {
-      "placeId": "4",
-      "body": "qwertyui",
-      "id": 10
-    },
-    {
-      "placeId": "5",
-      "body": "qwertyui",
-      "id": 11
-    }
-  ]
+  "comments": []
 }
