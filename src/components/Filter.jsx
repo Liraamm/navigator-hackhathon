@@ -38,29 +38,72 @@ export default function Filter() {
     <ToggleButtonGroup
       // color="primary"
       sx={{
-        backgroundColor: "#F4F2DE",
+        // backgroundColor: "#F4F2DE",
+        flexWrap: "wrap",
       }}
       value={category}
       exclusive
       onChange={handleChange}
       aria-label="Platform"
     >
-      <ToggleButton sx={{ color: "#E9B384" }} value="all">
+      <ToggleButton
+        sx={{
+          backgroundColor: "#F4F2DE",
+          color: "#E9B384",
+          border: "1px solid #E9B384",
+        }}
+        value="all"
+      >
         All
       </ToggleButton>
-      <ToggleButton sx={{ color: "#E9B384" }} value="Emergency">
+      <ToggleButton
+        sx={{
+          backgroundColor: "#F4F2DE",
+          color: "#E9B384",
+          border: "1px solid #E9B384",
+        }}
+        value="Emergency"
+      >
         Emergency
       </ToggleButton>
-      <ToggleButton sx={{ color: "#E9B384" }} value="Entertainment">
+      <ToggleButton
+        sx={{
+          backgroundColor: "#F4F2DE",
+          color: "#E9B384",
+          border: "1px solid #E9B384",
+        }}
+        value="Entertainment"
+      >
         Entertainment
       </ToggleButton>
-      <ToggleButton sx={{ color: "#E9B384" }} value="Shopping">
+      <ToggleButton
+        sx={{
+          backgroundColor: "#F4F2DE",
+          color: "#E9B384",
+          border: "1px solid #E9B384",
+        }}
+        value="Shopping"
+      >
         Shopping
       </ToggleButton>
-      <ToggleButton sx={{ color: "#E9B384" }} value="Food">
+      <ToggleButton
+        sx={{
+          backgroundColor: "#F4F2DE",
+          color: "#E9B384",
+          border: "1px solid #E9B384",
+        }}
+        value="Food"
+      >
         Food
       </ToggleButton>
-      <ToggleButton sx={{ color: "#E9B384" }} value="Nature">
+      <ToggleButton
+        sx={{
+          backgroundColor: "#F4F2DE",
+          color: "#E9B384",
+          border: "1px solid #E9B384",
+        }}
+        value="Nature"
+      >
         Nature
       </ToggleButton>
     </ToggleButtonGroup>

@@ -20,6 +20,7 @@ const NavigatorList = () => {
         alignItems: "center",
         justifyContent: "space-evenly",
         mt: 5,
+        flexWrap: "wrap",
       }}
     >
       {places.length > 0 ? (
