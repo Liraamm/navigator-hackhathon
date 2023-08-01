@@ -21,6 +21,7 @@ const NavigatorList = () => {
         justifyContent: "center", // Центрируем элементы по горизонтали
         alignItems: "center", // Выравниваем элементы по вертикали
         mt: 5,
+        flexWrap: "wrap",
       }}
     >
       {places.length > 0 ? (

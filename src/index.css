@@ -118,3 +118,9 @@ a {
   text-decoration: none;
   color: #f4f2de;
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+    margin: 1vh;
+  }
+}
