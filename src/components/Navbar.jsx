@@ -25,6 +25,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useNavigatorContext } from "../contexts/NavigatorContext";
 import { useSubscribeContext } from "../contexts/SubscribeContext";
+import { useFavouriteContext } from "../contexts/FavouriteContext";
 
 const pages = [];
 
@@ -39,6 +40,7 @@ export default function Navbar() {
   const { user, logout, isAdmin } = useAuthContext();
   const { setPage } = useNavigatorContext();
   const { cart } = useSubscribeContext();
+  const { favourite } = useFavouriteContext();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -132,7 +134,7 @@ export default function Navbar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge color="error">
             <LocalAtmIcon />
           </Badge>
         </IconButton>
@@ -219,7 +221,7 @@ export default function Navbar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={3} color="error">
+              <Badge badgeContent={favourite.length} color="error">
                 <FavoriteIcon onClick={() => navigate("/favourite")} />
               </Badge>
             </IconButton>
@@ -228,7 +230,7 @@ export default function Navbar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={3} color="error">
+              <Badge color="error">
                 <LocalAtmIcon onClick={() => navigate("/subscribe")} />
               </Badge>
             </IconButton>
